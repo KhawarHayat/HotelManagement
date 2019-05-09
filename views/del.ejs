@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <title>Del And Update</title>
+    <script>
+    $(document).ready(function(){
+    $("#search").click(function(){
+        axios.post('/search',{
+            name : $('#staff').val()
+        }).then((res)=>{
+           console.log(res.data)  
+        })
+    })
+    $("#del").click(function(){
+        axios.post('/search1',{
+            name : $('#staff').val()
+        }).then((res)=>{
+           console.log(res.data)  
+        })
+    })
+    })
+    </script>
+</head>
+<body>
+    <h1>Staff</h1><hr>
+    <input type="search" id="staff" placeholder="Staff">
+    <button id="search">Search</button>
+    <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Father-Name</th>
+                    <th>Del</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Name" id="name"></td>
+                    <td data-label="Father-Name" id="fname"></td>
+                    <td data-label="Del" id="del">Del</td>
+                </tr>
+            </tbody>
+             </table>
+</body>
+</html>

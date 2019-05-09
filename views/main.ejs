@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Client Front View</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+   <script>
+    $(document).ready(function(){
+            $('#pakistani').click(function(){
+            $('#A').css("display","block")
+            $('#B').css("display","none")
+            })
+            $('#chines').click(function(){
+            $('#A').css("display","none")
+            $('#B').css("display","block")
+            })
+            $('#con').click(
+                ()=>{
+                    axios.post('/order',{
+                Handi : $('#Ha').val(),
+                Karahi : $('#Ka').val(),
+                Baryani :  $('#Ba').val(),
+                Dunba : $('#Du').val(),
+                ChinesCarrot : $('#Cc').val(),
+                ChinesLoli : $('#Cl').val(),
+                ChinesRice : $('#Cr').val(),
+                Meeo :  $('#Me').val()  
+            }).then((res)=>{
+                console.log(res.data)
+            })
+                }
+            )
+    })
+   </script>
+</head>
+<body>
+        <div class="ui equal width center aligned padded grid">
+                <div class="row">
+                  <div class="green column" id="pakistani">
+                    <p>Pakistani</p>
+                  </div>
+                  <div class="blue column" id="chines">
+                    <p>Chines</p>
+                  </div>
+                </div>
+              </div>
+              <div class="ui middle aligned divided list" id = "A" style="display : none;">
+                    <div class="item">
+                        <input type="Number" class="right floated content" id="Ha" value="0">
+                        <p class="right floated content">Rs 800/-</p>
+                        <p class="content">Handi</p>           
+                    </div>
+                    <div class="item">
+                            <input type="Number" class="right floated content" id="Ba" value="0">
+                            <p class="right floated content">Rs 150/-</p>
+                            <p class="content">Baryani</p>
+                      </div>
+                      <div class="item">
+                            <input type="Number" class="right floated content" id="Du" value="0">
+                            <p class="right floated content">Rs 1500/-</p> 
+                            <p class="content">Dunba</p>
+                      </div>
+                      <div class="item">
+                            <input type="Number" class="right floated content" id="Ka" value="0">
+                            <p class="right floated content">Rs 800/-</p>
+                            <p class="content">Karahi</p>
+                      </div>
+                             </div>
+                             <div class="ui middle aligned divided list" id="B" style="display : none;">
+                                    <div class="item">
+                                        <input type="Number" class="right floated content" id="Cc" value="0"> 
+                                        <p class="right floated content">Rs 800/-</p>
+                                        <p class="content">Chines Carrot</p>           
+                                    </div>
+                                    <div class="item">
+                                            <input type="Number" class="right floated content" id="Cl" value="0">
+                                            <p class="right floated content">Rs 150/-</p>
+                                            <p class="content">Choti Loli</p>
+                                      </div>
+                                      <div class="item">
+                                            <input type="Number" class="right floated content" id="Cr" value="0">
+                                            <p class="right floated content">Rs 150/-</p>
+                                            <p class="content">Chines Rice</p>
+                                      </div>
+                                      <div class="item">
+                                            <input type="Number" class="right floated content" id="Me" value="0">
+                                            <p class="right floated content">Rs 800/-</p>
+                                            <p class="content">Meeo</p>
+                                      </div>
+                                             </div>
+                                      <button class="ui positive huge button" id="con">Confirm</button>
+</body>
+</html>
